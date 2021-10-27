@@ -43,7 +43,7 @@ function yIsCorrect (answer){
 }
 
 document.querySelector('#test').addEventListener('click', function(){
-
+    score = 0;
     answer1 = question("Erik lives in Seatac Washington.");
     // N is correct, Y is wrong
     nIsCorrect(answer1);
@@ -68,3 +68,5 @@ document.querySelector('#test').addEventListener('click', function(){
 
     document.querySelector('#score').textContent = `Score: ${score}/5`
 });
+
+
