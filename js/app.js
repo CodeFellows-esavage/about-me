@@ -100,7 +100,7 @@ for (let i = 1; i <= 4; i++){
 const catNames = ['Grits', 'Mr. Bitey', 'Chloe', 'Miso', 'Bob', 'Oliver', 'Poncho', 'Alice', 'Dickens', 'Tater'];
 console.log(catNames);
 
-let cat = prompt("One of my cats is named... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho Alice, Dickens, Tater", "Guess a valid name...");
+let cat = prompt("One of my cats is named... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater", "Guess a valid name...");
 let validCat = false;
 let cancel = false;
 
@@ -120,7 +120,7 @@ for(let attempt = 1; attempt <= 6; attempt++){
                 break;
             } else if (i === catNames.length - 1){
                 console.log(cat, '🙀 Not on List...');
-                cat = prompt('🙀 Not on List... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho Alice, Dickens, Tater', 'Guess Again!');
+                cat = prompt('🙀 Not on List... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater', 'Guess Again!');
             }
         }
     }
@@ -132,7 +132,7 @@ for(let attempt = 1; attempt <= 6; attempt++){
         alert(`All attempts were wrong... we were looking for ${catNames[2]} or ${catNames[6]}!`);
     } else {
         console.log(attempt);
-        cat = prompt('🙀 Wrong, Try Again! ... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho Alice, Dickens, Tater', 'Guess Again!');
+        cat = prompt('🙀 Wrong, Try Again! ... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater', 'Guess Again!');
     }
 }
 
