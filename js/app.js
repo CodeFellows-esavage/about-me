@@ -1,9 +1,9 @@
 'use strict';
-/*
 let firstName = "";
 let answer1, answer2, answer3, answer4, answer5;
 let score = 0;
 let secretNum = Math.trunc((Math.random()* 10)) + 1;
+
 
 function getName() {
     firstName = prompt("Enter your first name!", "First Name...");
@@ -66,16 +66,13 @@ document.querySelector('#test').addEventListener('click', function(){
     // N is correct, Y is wrong
     nIsCorrect(answer5);
 
-    alert(`Congrats ${firstName} you got ${score}/5 Correct!`);
 
-    document.querySelector('#score').textContent = `Score: ${score}/5`
-});
 
 let numGuess = prompt("Guess a number between 1 - 10")
 console.log(secretNum);
 
 for (let i = 1; i <= 4; i++){
-    while (numGuess < 1 || numGuess > 10) {
+    while (numGuess < 1 || numGuess > 10) { //Daniel Jackson helped with this
         // console.log(typeof(numGuess));
         numGuess = prompt("Try again... a number");
     }
@@ -91,7 +88,7 @@ for (let i = 1; i <= 4; i++){
         numGuess = prompt("⬇️ Too Low ⬇️ Guess Again!", `${4 - i} guesses left`);
     }
 }
-*/
+
 
 // Guess the name of one of my cats:
 // Chloe, Poncho are right
@@ -105,22 +102,42 @@ console.log(catNames);
 
 let cat = prompt("One of my cats is named... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho Alice, Dickens, Tater", "Guess a valid name...");
 let validCat = false;
+let cancel = false;
 
-//check for cat name is on list
-while(validCat === false){
-    for (let i = 0; i <= catNames.length; i++){
-        if(cat === catNames[i]){
-            console.log(`${cat} is in the list`);
-            validCat = true;
-            break;
-        } else if (i === catNames.length){
-            console.log('🙀 Not on List...');
-            cat = prompt('🙀 Not on List... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho Alice, Dickens, Tater', 'Guess Again!');
+// check for cat name is on list
+for(let attempt = 1; attempt <= 6; attempt++){
+    validCat = false;
+    cancel = false;
+    while(validCat === false && cancel === false){
+        for (let i = 0; i < catNames.length; i++){
+            if(cat === catNames[i]){
+                console.log(`${cat} is in the list`);
+                validCat = true;
+                break;
+            } else if (cat === null){
+                cancel = true;
+                console.log('canceling');
+                break;
+            } else if (i === catNames.length - 1){
+                console.log(cat, '🙀 Not on List...');
+                cat = prompt('🙀 Not on List... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho Alice, Dickens, Tater', 'Guess Again!');
+            }
         }
     }
+    if(cat.toUpperCase() === catNames[2].toUpperCase() || cat.toUpperCase() === catNames[6].toUpperCase()){
+        alert("🎉 Correct! 🎉");
+        score++;
+        break;
+    } else if (attempt === 6) {
+        alert(`All attempts were wrong... we were looking for ${catNames[2]} or ${catNames[6]}!`);
+    } else {
+        console.log(attempt);
+        cat = prompt('🙀 Wrong, Try Again! ... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho Alice, Dickens, Tater', 'Guess Again!');
+    }
 }
-console.log(validCat);
 
+alert(`Congrats ${firstName} you got ${score}/7 Correct!`);
 
-
+document.querySelector('#score').textContent = `Score: ${score}/7`
+});
 
