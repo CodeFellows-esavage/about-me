@@ -68,28 +68,29 @@ document.querySelector('#test').addEventListener('click', function(){
 
 
 
-let numGuess = prompt("Guess a number between 1 - 10")
-console.log(secretNum);
+function numGame () {
+    let numGuess = prompt("Guess a number between 1 - 10")
+    console.log(secretNum);
 
-for (let i = 1; i <= 4; i++){
-    while (numGuess < 1 || numGuess > 10) { //Daniel Jackson helped with this
-        // console.log(typeof(numGuess));
-        numGuess = prompt("Try again... a number");
-    }
-    if (Number(numGuess) === secretNum){
-        alert("🎉 Correct! 🎉");
-        score ++;
-        break;
-    } else if (i === 4) {
-        alert(`Sorry the correct number was ${secretNum}`);
-    } else if (numGuess > secretNum) {
-        numGuess = prompt(`⬆️ ${numGuess} Was Too High ⬆️ Guess Again!`, `${4 - i} guesses left`);
-    } else {
-        numGuess = prompt(`⬇️ ${numGuess} Was Too Low ⬇️ Guess Again!`, `${4 - i} guesses left`);
+    for (let i = 1; i <= 4; i++){
+        while (numGuess < 1 || numGuess > 10) { //Daniel Jackson helped with this
+            // console.log(typeof(numGuess));
+            numGuess = prompt("Try again... a number");
+        }
+        if (Number(numGuess) === secretNum){
+            alert("🎉 Correct! 🎉");
+            score ++;
+            break;
+        } else if (i === 4) {
+            alert(`Sorry the correct number was ${secretNum}`);
+        } else if (numGuess > secretNum) {
+            numGuess = prompt(`⬆️ ${numGuess} Was Too High ⬆️ Guess Again!`, `${4 - i} guesses left`);
+        } else {
+            numGuess = prompt(`⬇️ ${numGuess} Was Too Low ⬇️ Guess Again!`, `${4 - i} guesses left`);
+        }
     }
 }
-
-
+numGame();
 // Guess the name of one of my cats:
 // Chloe, Poncho are right
 // Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho Alice, Dickens, Tater
@@ -105,37 +106,39 @@ let validCat = false;
 let cancel = false;
 
 // check for cat name is on list
-for(let attempt = 1; attempt <= 6; attempt++){
-    validCat = false;
-    cancel = false;
-    while(validCat === false && cancel === false){
-        for (let i = 0; i < catNames.length; i++){
-            if(cat.toUpperCase() === catNames[i].toUpperCase()){
-                console.log(`${cat} is in the list`);
-                validCat = true;
-                break;
-            } else if (cat === null){
-                cancel = true;
-                console.log('canceling');
-                break;
-            } else if (i === catNames.length - 1){
-                console.log(cat, '🙀 Not on List...');
-                cat = prompt('🙀 Not on List... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater', 'Guess Again!');
+function catGame() {
+    for(let attempt = 1; attempt <= 6; attempt++){
+        validCat = false;
+        cancel = false;
+        while(validCat === false && cancel === false){
+            for (let i = 0; i < catNames.length; i++){
+                if(cat.toUpperCase() === catNames[i].toUpperCase()){
+                    console.log(`${cat} is in the list`);
+                    validCat = true;
+                    break;
+                } else if (cat === null){
+                    cancel = true;
+                    console.log('canceling');
+                    break;
+                } else if (i === catNames.length - 1){
+                    console.log(cat, '🙀 Not on List...');
+                    cat = prompt('🙀 Not on List... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater', 'Guess Again!');
+                }
             }
         }
-    }
-    if(cat.toUpperCase() === catNames[2].toUpperCase() || cat.toUpperCase() === catNames[6].toUpperCase()){
-        alert("🎉 Correct! 🎉");
-        score++;
-        break;
-    } else if (attempt === 6) {
-        alert(`All attempts were wrong... we were looking for ${catNames[2]} or ${catNames[6]}!`);
-    } else {
-        console.log(attempt);
-        cat = prompt('🙀 Wrong, Try Again! ... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater', 'Guess Again!');
+        if(cat.toUpperCase() === catNames[2].toUpperCase() || cat.toUpperCase() === catNames[6].toUpperCase()){
+            alert("🎉 Correct! 🎉");
+            score++;
+            break;
+        } else if (attempt === 6) {
+            alert(`All attempts were wrong... we were looking for ${catNames[2]} or ${catNames[6]}!`);
+        } else {
+            console.log(attempt);
+            cat = prompt('🙀 Wrong, Try Again! ... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater', 'Guess Again!');
+        }
     }
 }
-
+catGame();
 alert(`Congrats ${firstName} you got ${score}/7 Correct!`);
 
 document.querySelector('#score').textContent = `Score: ${score}/7`
