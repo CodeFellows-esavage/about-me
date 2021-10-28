@@ -141,3 +141,6 @@ alert(`Congrats ${firstName} you got ${score}/7 Correct!`);
 document.querySelector('#score').textContent = `Score: ${score}/7`
 });
 
+
+
+// Execution Order
