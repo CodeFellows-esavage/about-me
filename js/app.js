@@ -10,8 +10,6 @@ function getName() {
     document.querySelector('h2').textContent = `Welcome to my website ${firstName}!`;
    }
 
-getName();
-
 function question(ask){
     let answer = prompt(ask, "Y or N");
     console.log(answer);
@@ -43,31 +41,6 @@ function yIsCorrect (answer){
     }
 }
 
-
-document.querySelector('#test').addEventListener('click', function(){
-    score = 0;
-    answer1 = question("Erik lives in Seatac Washington.");
-    // N is correct, Y is wrong
-    nIsCorrect(answer1);
-
-    answer2 = question("Erik has two (2) childeren.");
-    // Y is correct, N is wrong
-    yIsCorrect(answer2);
-
-    answer3 = question("Erik graduated from WWU with a Mechanical Engineering Degree");
-    // N is correct, Y is wrong
-    nIsCorrect(answer3);
-
-    answer4 = question("Erik helped manufacture components of the Valve Index VR system");
-    // Y is correct, N is wrong
-    yIsCorrect(answer4);
-
-    answer5 = question("Erik is trying to become a full stack Java software developer");
-    // N is correct, Y is wrong
-    nIsCorrect(answer5);
-
-
-
 function numGame () {
     let numGuess = prompt("Guess a number between 1 - 10")
     console.log(secretNum);
@@ -90,7 +63,7 @@ function numGame () {
         }
     }
 }
-numGame();
+
 // Guess the name of one of my cats:
 // Chloe, Poncho are right
 // Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho Alice, Dickens, Tater
@@ -100,8 +73,7 @@ numGame();
 
 const catNames = ['Grits', 'Mr. Bitey', 'Chloe', 'Miso', 'Bob', 'Oliver', 'Poncho', 'Alice', 'Dickens', 'Tater'];
 console.log(catNames);
-
-let cat = prompt("One of my cats is named... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater", "Guess a valid name...");
+let cat; 
 let validCat = false;
 let cancel = false;
 
@@ -138,12 +110,38 @@ function catGame() {
         }
     }
 }
-catGame();
-alert(`Congrats ${firstName} you got ${score}/7 Correct!`);
-
-document.querySelector('#score').textContent = `Score: ${score}/7`
+// Execution Order
+getName();
+document.querySelector('#test').addEventListener('click', function(){
+    score = 0;
+    answer1 = question("Erik lives in Seatac Washington.");
+    // N is correct, Y is wrong
+    nIsCorrect(answer1);
+    
+    answer2 = question("Erik has two (2) childeren.");
+    // Y is correct, N is wrong
+    yIsCorrect(answer2);
+    
+    answer3 = question("Erik graduated from WWU with a Mechanical Engineering Degree");
+    // N is correct, Y is wrong
+    nIsCorrect(answer3);
+    
+    answer4 = question("Erik helped manufacture components of the Valve Index VR system");
+    // Y is correct, N is wrong
+    yIsCorrect(answer4);
+    
+    answer5 = question("Erik is trying to become a full stack Java software developer");
+    // N is correct, Y is wrong
+    nIsCorrect(answer5);
+    
+    numGame();
+    cat = prompt("One of my cats is named... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater", "Guess a valid name...");
+    catGame();
+    alert(`Congrats ${firstName} you got ${score}/7 Correct!`);
+    
+    document.querySelector('#score').textContent = `Score: ${score}/7`
 });
 
 
 
-// Execution Order
+
