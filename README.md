@@ -25,4 +25,6 @@ Erik Savage
 - Andrew Enyeart
 - Daniel Jackson
 
-
+## Pair Programming
+Navigator = Erik Savage
+Driver = Beau Hibbert
