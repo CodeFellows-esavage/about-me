@@ -83,9 +83,9 @@ for (let i = 1; i <= 4; i++){
     } else if (i === 4) {
         alert(`Sorry the correct number was ${secretNum}`);
     } else if (numGuess > secretNum) {
-        numGuess = prompt("⬆️ Too High ⬆️ Guess Again!", `${4 - i} guesses left`);
+        numGuess = prompt(`⬆️ ${numGuess} Was Too High ⬆️ Guess Again!`, `${4 - i} guesses left`);
     } else {
-        numGuess = prompt("⬇️ Too Low ⬇️ Guess Again!", `${4 - i} guesses left`);
+        numGuess = prompt(`⬇️ ${numGuess} Was Too Low ⬇️ Guess Again!`, `${4 - i} guesses left`);
     }
 }
 
