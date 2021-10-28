@@ -110,7 +110,7 @@ for(let attempt = 1; attempt <= 6; attempt++){
     cancel = false;
     while(validCat === false && cancel === false){
         for (let i = 0; i < catNames.length; i++){
-            if(cat === catNames[i]){
+            if(cat.toUpperCase() === catNames[i].toUpperCase()){
                 console.log(`${cat} is in the list`);
                 validCat = true;
                 break;
