@@ -123,7 +123,7 @@ function catGame() {
                     break;
                 } else if (i === catNames.length - 1){
                     console.log(cat, '🙀 Not on List...');
-                    cat = prompt('🙀 Not on List... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater', 'Guess Again!');
+                    cat = prompt('🙀 Not on List... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater', "Try Again");
                 }
             }
         }
@@ -135,7 +135,7 @@ function catGame() {
             alert(`All attempts were wrong... we were looking for ${catNames[2]} or ${catNames[6]}!`);
         } else {
             console.log(attempt);
-            cat = prompt('🙀 Wrong, Try Again! ... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater', 'Guess Again!');
+            cat = prompt('🙀 Wrong, Try Again! ... Grits, Mr. Bitey, Chloe, Miso, Bob, Oliver, Poncho, Alice, Dickens, Tater', `${6 - attempt} Guesses Left...`);
         }
     }
 }
